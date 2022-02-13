@@ -1,5 +1,7 @@
 import random
 
+hands=['グー','チョキ','パー']
+
 def start_message():
   print('じゃんけんスタート')
 
@@ -9,6 +11,13 @@ def get_my_hand():
 
 def get_you_hand():
   return random.randint(0, 2)
+
+def get_hand_name(hand_number):
+  return hands[hand_number]
+
+def view_hand(my_hand,you_hand):
+  print('あなたの手は'+get_hand_name(my_hand))
+  print('相手の手は'+get_hand_name(you_hand))
 
 def view_result(hand_diff):
   if hand_diff == 0:
@@ -23,5 +32,7 @@ start_message()
 my_hand = get_my_hand()
 you_hand = get_you_hand()
 hand_diff = my_hand - you_hand
+
+view_hand(my_hand,you_hand)
 
 view_result(hand_diff)
