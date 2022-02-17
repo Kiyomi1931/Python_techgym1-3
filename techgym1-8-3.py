@@ -17,6 +17,12 @@ def get_my_hand():
     index += 1
   return int(input(input_message))
 
+def is_hand(number):
+  if 0<=number<=2:
+    return True
+  else:
+    return False
+
 def get_you_hand():
   return random.randint(0, 2)
 
@@ -40,6 +46,8 @@ def view_result(result):
 
 def play():
   my_hand = get_my_hand()
+  while not is_hand(my_hand):
+    my_hand=get_my_hand()
   you_hand = get_you_hand()
   hand_diff = my_hand - you_hand
 
