@@ -6,9 +6,13 @@ results = {'win':'勝ち', 'lose':'負け', 'draw':'あいこ'}
 def start_message():
   print('じゃんけんスタート')
 
-def is_hand(number):
-  if number >= 0 and number <= 2:
-    return True
+def is_hand(string):
+  if string.isdigit():
+    number=int(string)
+    if number >= 0 and number <= 2:
+      return True
+    else:
+      return False
   else:
     return False
 
@@ -21,7 +25,7 @@ def get_my_hand():
     if index < 2:
       input_message += ', '
     index += 1
-  return int(input(input_message))
+  return input(input_message)
 
 def get_you_hand():
   return random.randint(0, 2)
@@ -49,6 +53,7 @@ def play():
   while not is_hand(my_hand):
     my_hand = get_my_hand()
 
+  my_hand=int(my_hand)
   you_hand = get_you_hand()
   hand_diff = my_hand - you_hand
 
