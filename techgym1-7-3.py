@@ -38,13 +38,16 @@ def get_result(hand_diff):
 def view_result(result):
   print(results[result])
 
+def play():
+  my_hand = get_my_hand()
+  you_hand = get_you_hand()
+  hand_diff = my_hand - you_hand
+
+  view_hand(my_hand, you_hand)
+  result = get_result(hand_diff)
+  view_result(result)
+  if result=='draw':
+    play()
 
 start_message()
-
-my_hand = get_my_hand()
-you_hand = get_you_hand()
-hand_diff = my_hand - you_hand
-
-view_hand(my_hand, you_hand)
-result = get_result(hand_diff)
-view_result(result)
+play()
